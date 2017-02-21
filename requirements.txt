@@ -1,0 +1,4 @@
+git+https://git.weboob.org/weboob/devel.git
+bottle
+tabulate
+pdfminer
