@@ -1,0 +1,11 @@
+{
+  "providers": ["amundi"],
+  "provider_credentials": {
+    "amundi": {
+      "login": "XXXXX",
+      "password": "YYYYY"
+    }
+  },
+  "peg_perco_names": ["PERCO LIBRE",
+                      "PLAN D'EPARGNE GROUPE"]
+}
