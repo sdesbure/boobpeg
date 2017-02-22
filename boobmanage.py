@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 from weboob.core import Weboob
-from weboob.exceptions import ModuleLoadError
+from weboob.exceptions import ModuleLoadError, ModuleInstallError
 from weboob.core.backendscfg import BackendAlreadyExists
+from weboob.capabilities.bank import Account
 import logging
 
 logger = logging.getLogger(__name__)
@@ -35,12 +36,24 @@ class Boobmanage:
                      ' False' % backend)
         return False
 
+    def install_module(self, name):
+        logger.debug("install_module: name: %s" % name)
+        try:
+            self.weboob.repositories.install(name)
+        except ModuleInstallError as e:
+            logger.error('install_module(): Unable to install module '
+                         '"%s": %s' % (name, e))
+            return False
+        logger.debug("install_module: OK returning True")
+        return True
+
     def add_backend(self, backend, params):
         logger.debug("add_backend(): backend: %s | params: %s" %
                      (backend, params))
         minfo = self.weboob.repositories.get_module_info(backend)
         config = None
         module = None
+        instance = None
 
         try:
             if minfo is None:
@@ -51,6 +64,7 @@ class Boobmanage:
             if not minfo.is_installed():
                 logger.warning('add_backend(): module "%s" is available but '
                                'not installed' % minfo.name)
+                self.install_module(minfo)
             else:
                 logger.debug('add_backend(): module "%s" is installed'
                              % minfo.name)
@@ -80,6 +94,8 @@ class Boobmanage:
             config.save(edit=False)
             logger.debug('add_backend(): backend "%s" loaded and configured, '
                          'returning True' % backend)
+            
+            self.weboob.iter_resources(obj=Account)
             return True
         except BackendAlreadyExists:
             logger.warning('add_backend(): backend "%s" already exists, doing'
