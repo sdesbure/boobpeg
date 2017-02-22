@@ -80,7 +80,7 @@ def show_code(code):
     return update_investments_and_return_value(code)
 
 
-if os.path.isfile("config.json"):
+if os.path.isfile(config_file):
     LOGGER.debug("opening config.json file in order to retrieve configuration")
     config = None
     boobmanage = Boobmanage()
