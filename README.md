@@ -18,3 +18,4 @@ boobpeg needs a config file named `config.json`. An example is provided.
 ## Launch
 
 if not in Docker, start it using `./boobpeg_rest.py`. `./boobpeg_rest.py -h` will give you the different options for start.
+if Docker, launch as an usual docker : `docker run -p 8081:8081 -v /somewhere:/config --name boobpeg_rocks sdesbure/boobpeg`
