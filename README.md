@@ -1,6 +1,7 @@
 # boobpeg
 boobpeg retrieve values from peg codes (currently amundi ee only)
 
+[![](https://images.microbadger.com/badges/image/sdesbure/boobpeg.svg)](https://microbadger.com/images/sdesbure/boobpeg "Get your own image badge on microbadger.com")  [![](https://images.microbadger.com/badges/version/sdesbure/boobpeg.svg)](https://microbadger.com/images/sdesbure/boobpeg "Get your own version badge on microbadger.com")  [![](https://images.microbadger.com/badges/commit/sdesbure/boobpeg.svg)](https://microbadger.com/images/sdesbure/boobpeg "Get your own commit badge on microbadger.com")  [![](https://images.microbadger.com/badges/license/sdesbure/boobpeg.svg)](https://microbadger.com/images/sdesbure/boobpeg "Get your own license badge on microbadger.com")
 
 ## Installation
 
